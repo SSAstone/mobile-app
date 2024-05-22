@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:mobile_app/screens/home/home_view.dart';
+import 'package:go_router/go_router.dart';
+// import 'package:mobile_app/screens/home/home_view.dart';
 import 'package:mobile_app/utitls/colors.dart';
 import 'package:mobile_app/widget/btn/primary_btn.dart';
 
@@ -18,12 +19,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Timer(
       const Duration(seconds: 3),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomeView(),
-        ),
-      ),
+      () => GoRouter.of(context).go('/main'),
     );
   }
 
@@ -76,14 +72,7 @@ class _SplashViewState extends State<SplashView> {
                   ),
                   PrimaryBtn(
                     title: 'Get Started',
-                    onTopPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeView(),
-                        ),
-                      );
-                    },
+                    onTopPressed: () => context.go('/main'),
                   ),
                 ],
               ),

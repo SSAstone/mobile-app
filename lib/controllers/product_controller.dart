@@ -31,12 +31,12 @@ class ProductController extends GetxController {
     isLoading.value = true;
     try {
       final http.Response response = await http.get(
-        Uri.parse("http://192.168.0.104:5550/product"),
+        Uri.parse("http://192.168.0.106:5550/product"),
       );
       if (response.statusCode == 200) {
         productModel = ProductModel.fromJson(jsonDecode(response.body));
         if (productModel.success) {
-          print(jsonDecode(response.body));
+          // print(jsonDecode(response.body));
           final responseData = productModel.docs;
           print("Response data: $responseData");
         } else {
